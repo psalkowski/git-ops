@@ -1,12 +1,11 @@
 ---
 controller:
   ingressClassResource:
-    default: "false"
+    default: false
 
   config:
-    enable-real-ip: "true"
-    use-forwarded-headers: "true"
-    allow-snippet-annotations: "true"
+    enable-real-ip: true
+    use-forwarded-headers: true
 
   service:
     externalTrafficPolicy: "Cluster"
