@@ -6,7 +6,6 @@ kind: Kustomization
 resources:
   # Flux-Kustomizations
   - ./helm-release.yaml
-  - ./cloudflare
 
 configMapGenerator:
   - name: cert-manager-helm-values
