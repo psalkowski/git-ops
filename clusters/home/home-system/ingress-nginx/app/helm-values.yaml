@@ -1,13 +1,14 @@
 ---
 controller:
   ingressClassResource:
-    default: false
+    default: "false"
 
   config:
-    enable-real-ip: true
-    use-forwarded-headers: true
-    allow-snippet-annotations: true
+    enable-real-ip: "true"
+    use-forwarded-headers: "true"
+    allow-snippet-annotations: "true"
+
   service:
-    externalTrafficPolicy: Cluster
+    externalTrafficPolicy: "Cluster"
     annotations:
-      metallb.universe.tf/address-pool: private-ip
+      metallb.universe.tf/address-pool: "private-ip"
