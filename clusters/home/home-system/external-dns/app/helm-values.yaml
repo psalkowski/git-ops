@@ -1,0 +1,19 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kubernetes-sigs/external-dns/master/charts/external-dns/values.schema.json
+provider: cloudflare
+domainFilters: []
+sources:
+  - ingress
+extraArgs:
+  - "--zone-id-filter=$CF_ZONE_ID"
+env:
+  - name: CF_ZONE_ID
+    valueFrom:
+      secretKeyRef:
+        key: CF_ZONE_ID
+        name: external-dns-cloudflare
+  - name: CF_API_TOKEN
+    valueFrom:
+      secretKeyRef:
+        key: CF_API_TOKEN
+        name: external-dns-cloudflare

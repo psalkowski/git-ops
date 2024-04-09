@@ -13,5 +13,5 @@ spec:
           cloudflare:
             email: piotr@salkowski.org
             apiTokenSecretRef:
-              name: cloudflare-api-key
+              name: cert-manager-cloudflare
               key: api-key
