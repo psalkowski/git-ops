@@ -1,0 +1,8 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: private-ip
+spec:
+  addresses:
+    - "192.168.2.1-192.168.2.255"
+  autoAssign: true
