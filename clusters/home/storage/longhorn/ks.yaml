@@ -10,7 +10,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./clusters/home/storage/longhorn
+  path: ./clusters/home/storage/longhorn/app
   prune: true
   sourceRef:
     kind: GitRepository
