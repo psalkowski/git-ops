@@ -5,4 +5,4 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./configs
-  - ./controllers
+  - ./controllers/ks.yaml
