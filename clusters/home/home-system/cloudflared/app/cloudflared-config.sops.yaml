@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: cloudflared-config
+data:
+    config.yaml: ENC[AES256_GCM,data:Xnm/jdC0DaJxRfHK1eUPUmFeU0ufqCdsLF3Eg92sZrihpw3kMgeEyMu90mxSuAc74faKJgOQW838m8hy5C3/RLk7Q8QuaNnMgtYFPMB0ghquxfMoKLZsPH0VBBD3pYKdjBZv++8hD+j6pPI03nLmPD5DmdJle/Ig8MQG/XsMMXDwsD0BHlDtua2pmgWAlMEBYAjyZSYxVECUu9RDkcMsjR+FZYqAYotschc5gwdDGqCygXSkciG676bqnmIiUJBqjUjgvj6rYztppy6keUZcqMevgTB4YQW8g/aoAfePYSIv,iv:35rm0+AYbsTihcLzzWu7j/e/HuwvR+yWSWYyRPlDVcg=,tag:wy7EmMuIhRDIxVBDp4dodg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-04-12T09:34:52Z"
+    mac: ENC[AES256_GCM,data:bluA+KwTbI/p5Zcup+BN7CN5/Pm9Z+8/7Igy0I1FP4URiXzEwXKzb0PE3BcqaDXW/VMUl+HrR5CBP3fxQjvEFRGpXJhVMT3AAvJyco73mPFC7qqn//0hoMaozIcdyhISklxy7YS4sM1a3zxy09VcECSiijbqFoB9wSR5K3LDpOE=,iv:28IjAg1vdHVnBINy6g/qkaHVu+3+Tm1kgjilDKEKJ7U=,tag:WlxhhTmHiPeXxaA5rwBgtQ==,type:str]
+    pgp:
+        - created_at: "2024-04-12T09:34:52Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+5DLFyTQx3jAQ/+L1Pek5lKSh0hbYvsdp6lLO+4pmgjX2xzaCD1Qp+NORhW
+            GJEuq8XUe4Ap09g099Zh90x5tHIIBD3MGnF1mycZPYJppBfoBK+kHDT6qWsAoBAT
+            XqisqNNSZlDdG0B8AH8KChk93CIoTnkwxZ5s9TFESeHiWh1hNTt8WG/kyjwcWfxT
+            3iJM9UDcbqWDiOVMRs2+57zbB9L02ptDKmqLvFKHZLR272RnB8my3DXU/J38bDKO
+            pNzWTb8o5kt9c0S/EkmjWnOR0Ox0XewLhnaDjhYxtn6iyk9JuXn+PltmW6vs+gFm
+            GC85tyDuumladQnQY+2ra9L3X5ur2jjbqG4CfJEnw7zzbIqdogpwaRVGjJ70WKSI
+            UNukm+pbtl7Dq19/MCUWt0NLSYeuUUuXNSGBIdk9iJppuN3B50PiJ98qRtgPTW22
+            S8dLJ32joOrYNYUwzrXVru9N6UL1yJmFz41QRT2kY5b9zgdf8rkncBIQOKwiZdfi
+            SiqVqRxZWbHR9TsTsc1AgiIxdc9Xu7LxLTxwrmeYsOkg9AFIc597NApEawt/4h3G
+            RVOzC+tduoX1hIWEp980XU5EXwEaoQ0WM08MDdKZ2OCB1fbvvN4krhxfI95lO39i
+            tpDLOGCdWHiFdE1NchWi831g3R5Tk/oYoqwf2ptr8ltgUX7S5LF+9YyI8VOruELU
+            ZgEJAhBpbpNMaGmGWsTQXb0xKAWogdAYdXjXnAY3W1+IDmEYy9yLSN3qJHEAPY7V
+            9bnBWxkjgSg4ZFpBegiJnmraejwrUQBrqEU4+A773qbNy5/RYPMcSY8D5aIGRFHa
+            Gtr3yD5/NA==
+            =v4eT
+            -----END PGP MESSAGE-----
+          fp: 0AAF5FE46B52389FC9592F437F372F40F521140D
+    encrypted_regex: ^(data|stringData)$
+    version: 3.8.1
