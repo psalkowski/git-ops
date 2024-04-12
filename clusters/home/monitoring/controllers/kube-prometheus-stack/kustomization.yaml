@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: monitoring
 resources:
   - repository.yaml
+  - grafana-credentials.sops.yaml
   - release.yaml
 configMapGenerator:
   - name: flux-kube-state-metrics-config
