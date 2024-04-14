@@ -1,4 +1,14 @@
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/notification.toolkit.fluxcd.io/provider_v1beta3.json
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Provider
+metadata:
+  name: alert-manager
+  namespace: flux-system
+spec:
+  type: alertmanager
+  address: http://alertmanager.monitoring.svc.cluster.local:9093/api/v2/alerts/
+---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/notification.toolkit.fluxcd.io/alert_v1beta3.json
 apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
@@ -7,7 +17,7 @@ metadata:
   namespace: flux-system
 spec:
   providerRef:
-    name: slack
+    name: alert-manager
   eventSeverity: info
   eventSources:
     - kind: GitRepository
