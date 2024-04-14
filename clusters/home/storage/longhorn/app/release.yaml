@@ -40,8 +40,7 @@ spec:
 
     defaultNodeSelector:
       enable: true
-      selector:
-        node-role.kubernetes.io/master: "true"
+      selector: "persistent"
 
     ingress:
       enabled: true
