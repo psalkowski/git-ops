@@ -38,9 +38,10 @@ spec:
     defaultSettings:
       defaultDataPath: /mnt/cluster/cluster-storage
 
-    defaultNodeSelector:
-      enable: true
-      selector: "persistent"
+    persistence:
+      defaultNodeSelector:
+        enable: true
+        selector: "persistent"
 
     ingress:
       enabled: true
