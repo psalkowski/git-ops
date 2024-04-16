@@ -37,11 +37,11 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                - wget -q "http://127.0.0.1:8087/sync?force=true" --post-data=''
+                - wget -q --spider "http://127.0.0.1:8087/sync?force=true" --post-data=''
             initialDelaySeconds: 20
             failureThreshold: 3
             timeoutSeconds: 1
-            periodSeconds: 10
+            periodSeconds: 120
 
           readinessProbe:
             tcpSocket:
