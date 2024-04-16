@@ -31,6 +31,11 @@ spec:
             - name: http
               containerPort: 8087
               protocol: TCP
+
+          resources:
+            limits:
+              memory: 1Gi
+
           livenessProbe:
             exec:
               command:
