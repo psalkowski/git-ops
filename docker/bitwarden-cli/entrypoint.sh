@@ -2,6 +2,8 @@
 
 set -e
 
+bw config server ${BW_HOST}
+
 bw login --apikey
 
 export BW_SESSION=$(bw unlock --passwordenv BW_PASSWORD --raw)
