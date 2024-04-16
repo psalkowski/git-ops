@@ -33,8 +33,9 @@ spec:
               protocol: TCP
 
           resources:
-            limits:
-              memory: 2Gi
+            requests:
+              cpu: 200m
+              memory: 250Mi
 
           livenessProbe:
             exec:
