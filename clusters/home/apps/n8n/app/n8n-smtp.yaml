@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/external-secrets.io/externalsecret_v1beta1.json
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: &secretName n8n-smtp
+spec:
+  target:
+    name: *secretName
+    deletionPolicy: Delete
+    template:
+      type: Opaque
+      data:
+        username: |-
+          {{ .username }}
+        password: |-
+          {{ .password }}
+  data:
+    - secretKey: password
+      sourceRef:
+        storeRef:
+          name: bitwarden-login
+          kind: ClusterSecretStore
+      remoteRef:
+        key: dc3314fe-f633-4b5d-8ec1-b15800fbe989
+        property: password
+    - secretKey: username
+      sourceRef:
+        storeRef:
+          name: bitwarden-login
+          kind: ClusterSecretStore
+      remoteRef:
+        key: dc3314fe-f633-4b5d-8ec1-b15800fbe989
+        property: username
