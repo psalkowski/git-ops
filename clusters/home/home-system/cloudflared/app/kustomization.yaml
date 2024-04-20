@@ -5,6 +5,17 @@ kind: Kustomization
 
 resources:
   # Flux-Kustomizations
-  - ./cloudflared-config.yaml
   - ./cloudflared-credentials.yaml
   - ./daemonset.yaml
+
+configMapGenerator:
+  - name: cloudflared-config
+    files:
+      - config.yaml=./cloudflared-config.yaml
+    options:
+      labels:
+        app.kubernetes.io/part-of: home-system
+        app.kubernetes.io/component: cloudflared
+
+configurations:
+  - kustomizeconfig.yaml
