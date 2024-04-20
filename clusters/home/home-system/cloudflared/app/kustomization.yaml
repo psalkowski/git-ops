@@ -5,6 +5,6 @@ kind: Kustomization
 
 resources:
   # Flux-Kustomizations
-  - ./cloudflared-config.sops.yaml
+  - ./cloudflared-config.yaml
   - ./cloudflared-credentials.yaml
   - ./daemonset.yaml
