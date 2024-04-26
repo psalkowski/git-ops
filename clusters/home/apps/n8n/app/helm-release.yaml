@@ -19,6 +19,9 @@ spec:
         namespace: flux-system
 
   values:
+    image:
+      tag: 1.38.2
+
     config:
       executions:
         pruneData: "true"
@@ -44,7 +47,7 @@ spec:
         kubernetes.io/ingress.class: "nginx"
         external-dns.alpha.kubernetes.io/target: "psalkowski.pl"
         external-dns.alpha.kubernetes.io/hostname: &host "n8n.psalkowski.pl"
-        external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
         cert-manager.io/cluster-issuer: "letsencrypt-production"
 
       className: "nginx"
