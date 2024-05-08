@@ -20,7 +20,7 @@ spec:
 
   values:
     image:
-      tag: 1.38.2
+      tag: 1.39.1
 
     config:
       executions:
