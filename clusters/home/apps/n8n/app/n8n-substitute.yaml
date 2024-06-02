@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/external-secrets.io/externalsecret_v1beta1.json
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: &secretName n8n-substitute
+spec:
+  target:
+    name: *secretName
+    deletionPolicy: Delete
+    template:
+      type: Opaque
+      data:
+        allowed_ip: |-
+          {{ .password }}
+  data:
+    - secretKey: password
+      sourceRef:
+        storeRef:
+          name: bitwarden-login
+          kind: ClusterSecretStore
+      remoteRef:
+        key: c2992297-2eea-4da8-8cb9-b18300b966be
+        property: password
