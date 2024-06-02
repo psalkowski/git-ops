@@ -21,8 +21,8 @@ spec:
                 name: n8n
                 port:
                   number: 80
-            path: /(?!.*(rest\/oauth2-credential|webhook)).*$
-            pathType: ImplementationSpecific
+            path: /
+            pathType: Prefix
   tls:
     - hosts:
         - n8n.psalkowski.pl

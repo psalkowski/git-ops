@@ -8,6 +8,6 @@ controller:
     use-forwarded-headers: true
 
   service:
-    externalTrafficPolicy: "Cluster"
+    externalTrafficPolicy: "Local"
     annotations:
       metallb.universe.tf/address-pool: "private-ip"
