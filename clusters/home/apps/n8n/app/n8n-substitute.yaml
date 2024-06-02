@@ -11,9 +11,9 @@ spec:
       type: Opaque
       data:
         allowed_ip: |-
-          {{ .password }}
+          {{ .allowed_ip }}
   data:
-    - secretKey: password
+    - secretKey: allowed_ip
       sourceRef:
         storeRef:
           name: bitwarden-login
