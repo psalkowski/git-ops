@@ -22,4 +22,4 @@ spec:
   postBuild:
     substituteFrom:
       - kind: Secret
-        name: n8n-substitute
+        name: home-lab-router

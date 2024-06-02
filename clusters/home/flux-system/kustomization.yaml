@@ -10,3 +10,4 @@ resources:
   - ./gotk-sync.yaml
   - ./alerts
   - ./repositories
+  - ./substitute
