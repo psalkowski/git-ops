@@ -4,7 +4,7 @@ metrics: 0.0.0.0:2000
 no-autoupdate: true
 ingress:
   - hostname: echo.psalkowski.pl
-    service: http://echoserver.echoserver
+    service: http://ingress-nginx-controller.home-system
   - hostname: n8n.psalkowski.pl
-    service: http://n8n.n8n
+    service: http://ingress-nginx-controller.home-system
   - service: http_status:404
