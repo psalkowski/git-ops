@@ -55,7 +55,9 @@ spec:
       hosts:
         - host: *host
           paths:
-            - /
+            - /rest/oauth2-credential/callback
+            - /webhook-test
+            - /webhook
 
       tls:
         - hosts:

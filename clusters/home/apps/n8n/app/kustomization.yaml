@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
   - ./n8n-smtp.yaml
   - ./helm-release.yaml
+  - ./restricted.ingress.yaml
