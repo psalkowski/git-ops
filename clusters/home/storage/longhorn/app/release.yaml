@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: longhorn
-      version: 1.6.1
+      version: 1.6.2
       sourceRef:
         kind: HelmRepository
         name: longhorn
@@ -37,6 +37,8 @@ spec:
   values:
     defaultSettings:
       defaultDataPath: /mnt/cluster/cluster-storage
+      backupTarget: s3://longhorn-backup-f8f12dz@eu-central-1/
+      backupTargetCredentialSecret: aws-secret
 
     persistence:
       defaultNodeSelector:
