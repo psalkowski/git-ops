@@ -3,4 +3,5 @@ kind: Kustomization
 namespace: storage
 resources:
   - repository.yaml
+  - aws-secret.yaml
   - release.yaml
