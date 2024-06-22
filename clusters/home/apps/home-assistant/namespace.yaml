@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: &ns home-assistant
+  name: home-assistant
   labels:
     app.kubernetes.io/component: apps
     pod-security.kubernetes.io/enforce: privileged
@@ -12,7 +12,7 @@ apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Provider
 metadata:
   name: alert-manager
-  namespace: *ns
+  namespace: home-assistant
 spec:
   type: alertmanager
   address: http://alertmanager.monitoring.svc.cluster.local:9093/api/v2/alerts/
@@ -22,7 +22,7 @@ apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
 metadata:
   name: alert-manager
-  namespace: *ns
+  namespace: home-assistant
 spec:
   providerRef:
     name: alert-manager
