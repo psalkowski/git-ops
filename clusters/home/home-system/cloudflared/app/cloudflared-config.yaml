@@ -7,4 +7,6 @@ ingress:
     service: http://ingress-nginx-controller.home-system
   - hostname: n8n.psalkowski.pl
     service: http://ingress-nginx-controller.home-system
+  - hostname: ha.psalkowski.pl
+    service: http://ingress-nginx-controller.home-system
   - service: http_status:404
