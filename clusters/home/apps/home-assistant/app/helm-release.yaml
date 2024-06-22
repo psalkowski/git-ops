@@ -53,3 +53,7 @@ spec:
     addons:
       codeserver:
         enabled: true
+
+    service:
+      type: ClusterIP
+      port: 8123
