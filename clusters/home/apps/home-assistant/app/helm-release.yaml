@@ -69,3 +69,6 @@ spec:
       - mountPath: /run/dbus
         name: dbus
         readOnly: true
+
+    securityContext:
+      privileged: true
