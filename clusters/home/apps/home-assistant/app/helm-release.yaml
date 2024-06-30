@@ -57,3 +57,15 @@ spec:
     service:
       type: ClusterIP
       port: 8123
+
+    additionalVolumes:
+      - hostPath:
+          path: >-
+            /run/dbus
+          type: CharDevice
+        name: dbus
+
+    additionalMounts:
+      - mountPath: /run/dbus
+        name: dbus
+        readOnly: true
