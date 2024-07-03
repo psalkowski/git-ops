@@ -53,6 +53,8 @@ spec:
     addons:
       codeserver:
         enabled: true
+        service:
+          type: LoadBalancer
 
     service:
       type: ClusterIP
