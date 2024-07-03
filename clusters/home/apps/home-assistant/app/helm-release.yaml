@@ -27,9 +27,6 @@ spec:
 
     hostNetwork: false
 
-    nodeSelector:
-      support/zigbee: true
-
     configuration:
       enabled: true
       forceInit: true
@@ -60,6 +57,9 @@ spec:
     service:
       type: ClusterIP
       port: 8123
+
+    nodeSelector:
+      support/zigbee: "true"
 
     additionalVolumes:
       - hostPath:
