@@ -12,7 +12,7 @@ spec:
   chart:
     spec:
       chart: home-assistant
-      version: 0.2.65
+      version: 0.2.66
       sourceRef:
         kind: HelmRepository
         name: pajikos
@@ -26,6 +26,9 @@ spec:
       size: 5Gi
 
     hostNetwork: false
+
+    nodeSelector:
+      support/zigbee: true
 
     configuration:
       enabled: true
@@ -64,11 +67,18 @@ spec:
             /run/dbus
           type: Directory
         name: dbus
+      - hostPath:
+          path: >-
+            /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20240104094717-if00
+          type: CharDevice
+        name: usb
 
     additionalMounts:
       - mountPath: /run/dbus
         name: dbus
         readOnly: true
+      - mountPath: /dev/ttyACM0
+        name: usb
 
     securityContext:
       privileged: true
