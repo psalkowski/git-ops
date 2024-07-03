@@ -49,7 +49,8 @@ spec:
         automation: !include automations.yaml
         script: !include scripts.yaml
         scene: !include scenes.yaml
-        sensors: !include sensors.yaml
+        sensor: !include sensors.yaml
+        template: !include templates.yaml
 
     podSecurityContext:
       runAsUser: 0
