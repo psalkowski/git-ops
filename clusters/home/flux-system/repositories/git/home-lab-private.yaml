@@ -4,7 +4,7 @@ metadata:
   name: home-lab-private
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 1m
   ref:
     branch: main
   url: https://github.com/psalkowski/git-ops-private
