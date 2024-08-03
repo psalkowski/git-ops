@@ -7,6 +7,6 @@ spec:
   interval: 1m
   ref:
     branch: main
-  url: https://github.com/psalkowski/git-ops-private
+  url: http://github.com/psalkowski/git-ops-private
   secretRef:
     name: home-lab-private-credentials
