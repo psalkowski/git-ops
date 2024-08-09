@@ -24,6 +24,15 @@ spec:
           persistentVolumeClaim:
             claimName: "mariadb-data"
 
+      nodeSelector:
+        role: master
+
+      tolerations:
+        - key: role
+          operator: Equal
+          value: master
+          effect: NoSchedule
+
       containers:
         - name: "mariadb"
           image: mariadb:11
