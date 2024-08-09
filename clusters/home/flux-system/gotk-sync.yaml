@@ -3,7 +3,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: git-ops
+  name: flux-system
   namespace: flux-system
 spec:
   interval: 1m0s
@@ -11,7 +11,7 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-  url: https://github.com/psalkowski/git-ops.git
+  url: ssh://git@github.com/psalkowski/git-ops
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -24,4 +24,4 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: git-ops
+    name: flux-system
