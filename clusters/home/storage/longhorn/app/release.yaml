@@ -36,14 +36,9 @@ spec:
 
   values:
     defaultSettings:
-      defaultDataPath: /mnt/cluster/cluster-storage
+      defaultDataPath: /srv/network
       backupTarget: s3://longhorn-backup-f8f12dz@eu-central-1/
       backupTargetCredentialSecret: aws-secret
-
-    persistence:
-      defaultNodeSelector:
-        enable: true
-        selector: "persistent"
 
     ingress:
       enabled: true
