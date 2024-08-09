@@ -9,4 +9,4 @@ spec:
     branch: main
   url: http://github.com/psalkowski/git-ops-private
   secretRef:
-    name: home-lab-private-credentials
+    name: home-lab-private-repo-credentials

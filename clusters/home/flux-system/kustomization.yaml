@@ -9,6 +9,6 @@ resources:
   - ./gotk-components.yaml
   - ./gotk-sync.yaml
   - ./crds
-  - ./alerts
+  - ./secrets/ks.yaml
   - ./repositories
-  - ./substitute
+
