@@ -10,7 +10,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./clusters/home/databases/postgresql/app
+  path: ./clusters/home/databases/postgres/app
   prune: true
   sourceRef:
     kind: GitRepository
