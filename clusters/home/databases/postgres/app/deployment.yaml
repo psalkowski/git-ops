@@ -24,6 +24,15 @@ spec:
           persistentVolumeClaim:
             claimName: "postgres-data"
 
+      nodeSelector:
+        role: master
+
+      tolerations:
+        - key: role
+          operator: Equal
+          value: master
+          effect: NoSchedule
+
       containers:
         - name: "postgres"
           image: postgres:16.4
