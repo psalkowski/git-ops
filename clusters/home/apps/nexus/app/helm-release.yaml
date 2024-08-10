@@ -62,3 +62,27 @@ spec:
 
       nexusAdmin:
         name: "admin"
+
+  # Remove license file, so we can use OSS version of Nexus
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              version: v1
+              kind: Statefulset
+              name: nexus
+            patch: |-
+              apiVersion: apps/v1
+              kind: StatefulSet
+              metadata:
+                name: nexus
+              spec:
+                template:
+                  spec:
+                    containers:
+                      - name: nxrm-app
+                        env:
+                          - name: INSTALL4J_ADD_VM_PARAMS
+                            value: -Xms2703m -Xmx2703m -Dnexus.datastore.enabled=true
+                              -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs -Dnexus.datastore.nexus.jdbcUrl=jdbc:postgresql://${DB_HOST}:5432/${DB_NAME}
+                              -Dnexus.datastore.nexus.username=${DB_USER} -Dnexus.datastore.nexus.password=${DB_PASSWORD}
