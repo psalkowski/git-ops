@@ -7,7 +7,7 @@ metadata:
 spec:
   releaseName: *app
   targetNamespace: nexus
-  interval: 10m
+  interval: 1m
 
   chart:
     spec:
@@ -67,7 +67,11 @@ spec:
   postRenderers:
     - kustomize:
         patches:
-          - patch: |-
+          - target:
+              version: apps/v1
+              kind: StatefulSet
+              name: nexus
+            patch: |-
               apiVersion: apps/v1
               kind: StatefulSet
               metadata:
