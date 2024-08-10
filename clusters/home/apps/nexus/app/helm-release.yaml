@@ -37,6 +37,7 @@ spec:
             annotations:
               cert-manager.io/cluster-issuer: "letsencrypt-production"
               external-dns.alpha.kubernetes.io/hostname: "docker.psalkowski.pl"
+              nginx.ingress.kubernetes.io/proxy-body-size: 0m
             secretName: docker.psalkowski.pl-tls
 
     statefulset:
