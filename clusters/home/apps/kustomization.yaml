@@ -7,3 +7,5 @@ resources:
   - ./n8n/ks.yaml
   - ./home-assistant/namespace.yaml
   - ./home-assistant/ks.yaml
+  - ./nexus/namespace.yaml
+  - ./nexus/ks.yaml

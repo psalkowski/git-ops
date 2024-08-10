@@ -1,0 +1,64 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: &app n8n
+  namespace: flux-system
+spec:
+  releaseName: *app
+  targetNamespace: n8n
+  interval: 10m
+
+  chart:
+    spec:
+      chart: nxrm-ha
+      version: 71.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: sonatype
+        namespace: flux-system
+
+  values:
+    nameOverride: nexus
+
+    namespaces:
+      nexusNs:
+        enabled: false
+        name: nexus
+
+    statefulset:
+      clustered: false
+
+      nodeSelector:
+        role: master
+
+    service:
+      nexus:
+        enabled: true
+        type: ClusterIP
+        protocol: TCP
+        port: 80
+        targetPort: 8081
+
+    ingress:
+      enabled: true
+      host: nexus.psalkowski.pl
+      ingressClassName: nginx
+      defaultRule: true
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns.alpha.kubernetes.io/hostname: "nexus.psalkowski.pl"
+      tls:
+        - hosts:
+            - nexus.psalkowski.pl
+          secretName: nexus.psalkowski.pl-tls
+
+    secret:
+      dbSecret:
+        enabled: false
+
+      nexusAdminSecret:
+        enabled: false
+
+      nexusAdmin:
+        name: "admin"

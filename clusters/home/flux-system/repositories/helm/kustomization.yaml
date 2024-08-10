@@ -10,3 +10,4 @@ resources:
   - external-secrets.yaml
   - 8gears.yaml
   - pajikos.yaml
+  - sonatype.yaml
