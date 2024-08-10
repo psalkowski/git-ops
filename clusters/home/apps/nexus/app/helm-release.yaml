@@ -67,10 +67,7 @@ spec:
   postRenderers:
     - kustomize:
         patches:
-          - target:
-              kind: Statefulset
-              name: nexus
-            patch: |-
+          - patch: |-
               apiVersion: apps/v1
               kind: StatefulSet
               metadata:
