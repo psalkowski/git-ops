@@ -68,7 +68,6 @@ spec:
     - kustomize:
         patches:
           - target:
-              version: v1
               kind: Statefulset
               name: nexus
             patch: |-
