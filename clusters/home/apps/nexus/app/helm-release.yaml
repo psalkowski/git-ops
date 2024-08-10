@@ -26,6 +26,19 @@ spec:
         enabled: false
         name: nexus
 
+    nexus:
+      docker:
+        enabled: true
+        type: ClusterIP
+        registries:
+          - port: 8082
+            targetPort: 8082
+            host: docker.psalkowski.pl
+            annotations:
+              cert-manager.io/cluster-issuer: "letsencrypt-production"
+              external-dns.alpha.kubernetes.io/hostname: "docker.psalkowski.pl"
+            secretName: docker.psalkowski.pl-tls
+
     statefulset:
       clustered: false
 
