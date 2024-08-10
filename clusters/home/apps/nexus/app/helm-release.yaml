@@ -1,5 +1,5 @@
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: &app nexus
@@ -72,7 +72,6 @@ spec:
               kind: StatefulSet
               name: nexus
             patch: |-
-              apiVersion: apps/v1
               kind: StatefulSet
               metadata:
                 name: nexus
