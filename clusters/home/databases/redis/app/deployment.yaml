@@ -39,9 +39,6 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6379
-          envFrom:
-            - secretRef:
-                name: redis
 
           volumeMounts:
             - name: data
