@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/external-secrets.io/externalsecret_v1beta1.json
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: &secretName nexus-registry
+spec:
+  target:
+    name: *secretName
+    deletionPolicy: Delete
+    template:
+      type: kubernetes.io/dockerconfigjson
+      data:
+        .dockerconfigjson: |-
+          {{ .config }}
+  
+
+  data:
+    - secretKey: config
+      sourceRef:
+        storeRef:
+          name: bitwarden-fields
+          kind: ClusterSecretStore
+      remoteRef:
+        key: 1cbe9793-1fa9-40b1-a1a3-b1c800fa0c18
+        property: config

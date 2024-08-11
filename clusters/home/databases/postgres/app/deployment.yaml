@@ -33,6 +33,9 @@ spec:
           value: master
           effect: NoSchedule
 
+      imagePullSecrets:
+        - name: nexus-registry
+
       containers:
         - name: "postgres"
           image: docker.psalkowski.pl/postgres:16.4.3

@@ -4,6 +4,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ./namespace.yaml
+  - ./nexus-registry.yaml
   - ./mariadb/ks.yaml
   - ./postgres/ks.yaml
   - ./redis/ks.yaml
