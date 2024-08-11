@@ -3,10 +3,6 @@ credentials-file: /etc/cloudflared/creds/credentials.json
 metrics: 0.0.0.0:2000
 no-autoupdate: true
 ingress:
-  - hostname: echo.psalkowski.pl
-    service: http://ingress-nginx-controller.home-system
-  - hostname: n8n.psalkowski.pl
-    service: http://ingress-nginx-controller.home-system
-  - hostname: ha.psalkowski.pl
+  - hostname: "*.psalkowski.pl"
     service: http://ingress-nginx-controller.home-system
   - service: http_status:404
