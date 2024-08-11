@@ -11,3 +11,4 @@ resources:
   - 8gears.yaml
   - pajikos.yaml
   - sonatype.yaml
+  - github.yaml

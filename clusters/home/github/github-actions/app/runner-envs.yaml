@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/external-secrets.io/externalsecret_v1beta1.json
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: &secretName runner-envs
+spec:
+  target:
+    name: *secretName
+    deletionPolicy: Delete
+    template:
+      type: Opaque
+      data:
+        REGISTRY_USER: |-
+          {{ .username }}
+        REGISTRY_PASSWORD: |-
+          {{ .password }}
+
+  data:
+    - secretKey: username
+      sourceRef:
+        storeRef:
+          name: bitwarden-login
+          kind: ClusterSecretStore
+      remoteRef:
+        key: 1fa9-40b1-a1a3-b1c800fa0c18
+        property: username
+
+    - secretKey: password
+      sourceRef:
+        storeRef:
+          name: bitwarden-login
+          kind: ClusterSecretStore
+      remoteRef:
+        key: 1fa9-40b1-a1a3-b1c800fa0c18
+        property: password

@@ -1,0 +1,21 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/actions/actions-runner-controller/master/charts/actions-runner-controller/crds/actions.summerwind.dev_runnerdeployments.yaml
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: runner-amd64
+spec:
+  replicas: 1
+  template:
+    spec:
+      organization: PS-HomeLab
+
+      envFrom:
+        - secretRef:
+            name: runner-envs
+
+      imagePullSecrets:
+        - name: nexus-registry
+
+      nodeSelector:
+        role: master
