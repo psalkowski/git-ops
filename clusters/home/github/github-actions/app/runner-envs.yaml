@@ -22,7 +22,7 @@ spec:
           name: bitwarden-login
           kind: ClusterSecretStore
       remoteRef:
-        key: 1fa9-40b1-a1a3-b1c800fa0c18
+        key: 1cbe9793-1fa9-40b1-a1a3-b1c800fa0c18
         property: username
 
     - secretKey: password
@@ -31,5 +31,5 @@ spec:
           name: bitwarden-login
           kind: ClusterSecretStore
       remoteRef:
-        key: 1fa9-40b1-a1a3-b1c800fa0c18
+        key: 1cbe9793-1fa9-40b1-a1a3-b1c800fa0c18
         property: password
