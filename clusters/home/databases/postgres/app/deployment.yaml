@@ -35,7 +35,7 @@ spec:
 
       containers:
         - name: "postgres"
-          image: postgres:16.4
+          image: docker.psalkowski.pl/postgres:16.4.3
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5432
