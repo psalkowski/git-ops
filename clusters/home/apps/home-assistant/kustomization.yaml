@@ -5,5 +5,4 @@ kind: Kustomization
 namespace: home-assistant
 resources:
   - ./namespace.yaml
-  - ../../.shared/notification/discord-notification.yaml
   - ./ks.yaml

@@ -6,15 +6,41 @@ metadata:
   annotations:
     kustomize.toolkit.fluxcd.io/prune: disabled
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/external-secrets.io/externalsecret_v1beta1.json
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: &secretName discord-webhook
+  namespace: github
+spec:
+  target:
+    name: *secretName
+    deletionPolicy: Delete
+    template:
+      type: Opaque
+      data:
+        address: |-
+          {{ .address }}
+  data:
+    - secretKey: address
+      sourceRef:
+        storeRef:
+          name: bitwarden-fields
+          kind: ClusterSecretStore
+      remoteRef:
+        key: d328da7a-35ec-4d38-9a5f-b1ca006db221
+        property: address
+---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/notification.toolkit.fluxcd.io/provider_v1beta3.json
 apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Provider
 metadata:
-  name: alert-manager
+  name: discord
   namespace: github
 spec:
-  type: alertmanager
-  address: http://alertmanager.monitoring.svc.cluster.local:9093/api/v2/alerts/
+  type: discord
+  secretRef:
+    name: discord-webhook
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/notification.toolkit.fluxcd.io/alert_v1beta3.json
 apiVersion: notification.toolkit.fluxcd.io/v1beta3
@@ -24,7 +50,7 @@ metadata:
   namespace: github
 spec:
   providerRef:
-    name: alert-manager
+    name: discord
   eventSeverity: info
   eventSources:
     - kind: GitRepository

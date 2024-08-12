@@ -5,5 +5,4 @@ kind: Kustomization
 namespace: nexus
 resources:
   - ./namespace.yaml
-  - ../../.shared/notification/discord-notification.yaml
   - ./ks.yaml

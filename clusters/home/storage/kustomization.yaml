@@ -5,5 +5,4 @@ kind: Kustomization
 namespace: storage
 resources:
   - ./namespace.yaml
-  - ../.shared/notification/discord-notification.yaml
   - ./longhorn/ks.yaml
