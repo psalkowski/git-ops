@@ -67,8 +67,14 @@ spec:
             - nexus.psalkowski.pl
           secretName: nexus.psalkowski.pl-tls
 
+    storageClass:
+      name: longhorn
+
     pvc:
-      existingClaim: nexus-data
+      accessModes: ReadWriteMany
+      storage: 50Gi
+      volumeClaimTemplate:
+        enabled: true
 
     secret:
       dbSecret:

@@ -5,6 +5,5 @@ kind: Kustomization
 resources:
   - admin-secret.yaml
   - db-secret.yaml
-  - pvc.yaml
   - helm-release.yaml
 
