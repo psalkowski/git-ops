@@ -67,6 +67,9 @@ spec:
             - nexus.psalkowski.pl
           secretName: nexus.psalkowski.pl-tls
 
+    pvc:
+      existingClaim: nexus-data
+
     secret:
       dbSecret:
         enabled: false
