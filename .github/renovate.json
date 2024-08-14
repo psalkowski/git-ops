@@ -1,0 +1,5 @@
+{
+  "flux": {
+    "fileMatch": ["clusters/.+\\.yaml$"]
+  }
+}
