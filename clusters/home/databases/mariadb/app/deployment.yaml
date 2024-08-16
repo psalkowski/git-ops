@@ -39,9 +39,14 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3306
+
           envFrom:
             - secretRef:
                 name: mariadb
+
+          env:
+            - name: TZ
+              value: Europe/Warsaw
 
           volumeMounts:
             - name: data
