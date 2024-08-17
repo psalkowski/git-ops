@@ -262,14 +262,12 @@ spec:
         external-dns.alpha.kubernetes.io/hostname: &host "grafana.psalkowski.pl"
         cert-manager.io/cluster-issuer: "letsencrypt-production"
       hosts:
-        - host: *host
-          paths:
-            - path: /
-              pathType: Prefix
+        - *host
       tls:
         - secretName: grafana.psalkowski.pl-tls
           hosts:
             - *host
+
     persistence:
       enabled: false
     testFramework:
