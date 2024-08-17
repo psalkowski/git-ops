@@ -15,13 +15,18 @@ spec:
       interval: 1h
 
   install:
-    crds: Create
+    remediation:
+      retries: 3
+
   upgrade:
-    crds: CreateReplace
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
 
   values:
     namespacesToMonitor:
-      - loki
+      - monitoring
 
     clusterLabelValue: "home"
 
