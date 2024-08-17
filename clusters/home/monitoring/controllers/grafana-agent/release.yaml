@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       version: 0.4.1
-      chart: grafana-agent
+      chart: grafana-agent-operator
       sourceRef:
         kind: HelmRepository
         name: grafana-charts
