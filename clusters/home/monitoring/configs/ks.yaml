@@ -13,7 +13,7 @@ spec:
   path: ./clusters/home/monitoring/configs/app
   prune: true
   dependsOn:
-    - name: loki-stack
+    - name: loki
     - name: kube-prometheus-stack
   sourceRef:
     kind: GitRepository
