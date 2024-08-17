@@ -13,3 +13,4 @@ resources:
   - sonatype.yaml
   - github.yaml
   - grafana.yaml
+  - prometheus-community.yaml

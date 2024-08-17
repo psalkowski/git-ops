@@ -3,14 +3,14 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app kube-prometheus-stack
+  name: &app loki
   namespace: flux-system
 spec:
   targetNamespace: monitoring
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./clusters/home/monitoring/controllers/kube-prometheus-stack
+  path: ./clusters/home/monitoring/loki/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -18,8 +18,4 @@ spec:
   wait: false
   interval: 30m
   retryInterval: 1m
-  timeout: 5m
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-gpg
+  timeout: 15m
