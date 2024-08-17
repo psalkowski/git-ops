@@ -12,3 +12,4 @@ resources:
   - pajikos.yaml
   - sonatype.yaml
   - github.yaml
+  - grafana.yaml
