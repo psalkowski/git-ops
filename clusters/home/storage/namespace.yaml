@@ -13,6 +13,7 @@ metadata:
   name: &secretName discord-webhook
   namespace: storage
 spec:
+  refreshInterval: 5m
   target:
     name: *secretName
     deletionPolicy: Delete

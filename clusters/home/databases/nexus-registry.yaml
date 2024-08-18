@@ -5,6 +5,7 @@ metadata:
   name: &secretName nexus-registry
   namespace: database
 spec:
+  refreshInterval: 5m
   target:
     name: *secretName
     deletionPolicy: Delete

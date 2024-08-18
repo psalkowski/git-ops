@@ -4,6 +4,7 @@ kind: ExternalSecret
 metadata:
   name: &secretName runner-envs
 spec:
+  refreshInterval: 5m
   target:
     name: *secretName
     deletionPolicy: Delete
