@@ -65,7 +65,7 @@ spec:
             - name: LAUNCH_URL
               value: 'about:blank'
             - name: APP_ARGS
-              value: '--remote-debugging-port=3222 --user-data-dir=/data'
+              value: '--remote-debugging-port=3222 --window-size=1920,1080 --user-data-dir=/data'
           readinessProbe:
             tcpSocket:
               port: 6901
