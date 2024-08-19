@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: &app chrome
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: *app
+
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+
+  template:
+    metadata:
+      labels:
+        app: *app
+    spec:
+      nodeSelector:
+        role: master
+
+      tolerations:
+        - key: role
+          operator: Equal
+          value: master
+          effect: NoSchedule
+
+      volumes:
+        - name: dshm
+          emptyDir:
+            sizeLimit: "1Gi"
+            medium: Memory
+        - name: data
+          persistentVolumeClaim:
+            claimName: chrome-data
+
+      containers:
+        - image: alpine/socat:1.8.0.0
+          imagePullPolicy: IfNotPresent
+          name: socat
+          args:
+            - "TCP-LISTEN:9222,fork,reuseaddr"
+            - "TCP:127.0.0.1:3222"
+          ports:
+            - containerPort: 9222
+              name: debug
+
+        - name: *app
+          image: kasmweb/chrome:1.15.0-rolling
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 6901
+              name: web
+          env:
+            - name: TZ
+              value: Europe/Warsaw
+            - name: VNC_PW
+              valueFrom:
+                secretKeyRef:
+                  key: VNC_PW
+                  name: chrome-vnc
+            - name: LAUNCH_URL
+              value: 'about:blank'
+            - name: APP_ARGS
+              value: '--remote-debugging-port=3222 --user-data-dir=/data'
+          readinessProbe:
+            tcpSocket:
+              port: 6901
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
+          livenessProbe:
+            tcpSocket:
+              port: 6901
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
+          volumeMounts:
+            - mountPath: /dev/shm
+              name: dshm
+            - mountPath: /data
+              name: data
