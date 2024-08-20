@@ -5,7 +5,7 @@ kind: RunnerDeployment
 metadata:
   name: runner-amd64
 spec:
-  replicas: 1
+  replicas: 2
   template:
     spec:
       organization: PS-HomeLab
