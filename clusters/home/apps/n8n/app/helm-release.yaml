@@ -75,6 +75,7 @@ spec:
       N8N_DIAGNOSTICS_ENABLED: "false"
       WEBHOOK_URL: "https://n8n.psalkowski.pl"
       TZ: "Europe/Warsaw"
+      GENERIC_TIMEZONE: "Europe/Warsaw"
 
     extraEnvSecrets:
       N8N_SMTP_USER:
