@@ -54,6 +54,8 @@ spec:
           ports:
             - containerPort: 6901
               name: web
+            - containerPort: 3222
+              name: remote-debugging
           env:
             - name: TZ
               value: Europe/Warsaw
@@ -68,13 +70,13 @@ spec:
               value: '--remote-debugging-port=3222 --user-data-dir=/data'
           readinessProbe:
             tcpSocket:
-              port: 6901
+              port: 3222
             initialDelaySeconds: 10
             periodSeconds: 10
 
           livenessProbe:
             tcpSocket:
-              port: 6901
+              port: 3222
             initialDelaySeconds: 10
             periodSeconds: 10
 
