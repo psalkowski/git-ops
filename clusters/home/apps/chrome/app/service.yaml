@@ -16,4 +16,4 @@ spec:
       name: web
     - port: 9222
       targetPort: 9222
-      name: debug
+      name: rmdebug

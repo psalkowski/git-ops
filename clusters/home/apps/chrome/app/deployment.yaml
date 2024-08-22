@@ -67,7 +67,7 @@ spec:
             - containerPort: 6901
               name: web
             - containerPort: 3222
-              name: remote-debugging
+              name: rmdebug
           env:
             - name: TZ
               value: Europe/Warsaw
