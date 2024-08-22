@@ -83,8 +83,9 @@ spec:
           readinessProbe:
             tcpSocket:
               port: 3222
-            initialDelaySeconds: 60
+            initialDelaySeconds: 30
             periodSeconds: 10
+            failureThreshold: 6
 
           livenessProbe:
             tcpSocket:
