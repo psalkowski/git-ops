@@ -81,16 +81,17 @@ spec:
             - name: APP_ARGS
               value: '--remote-debugging-port=3222 --user-data-dir=/data'
           readinessProbe:
-            tcpSocket:
-              port: 3222
-            initialDelaySeconds: 30
+            httpGet:
+              port: 9222
+              path: /json/version
+            initialDelaySeconds: 20
             periodSeconds: 10
-            failureThreshold: 6
 
           livenessProbe:
-            tcpSocket:
-              port: 3222
-            initialDelaySeconds: 60
+            httpGet:
+              port: 9222
+              path: /json/version
+            initialDelaySeconds: 20
             periodSeconds: 10
 
           volumeMounts:
