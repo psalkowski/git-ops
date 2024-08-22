@@ -48,6 +48,18 @@ spec:
             - containerPort: 9222
               name: debug
 
+          readinessProbe:
+            tcpSocket:
+              port: 9222
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
+          livenessProbe:
+            tcpSocket:
+              port: 9222
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
         - name: *app
           image: kasmweb/chrome:1.15.0-rolling
           imagePullPolicy: IfNotPresent
