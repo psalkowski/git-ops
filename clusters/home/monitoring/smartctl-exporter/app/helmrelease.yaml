@@ -31,6 +31,16 @@ spec:
       devices:
         - /dev/sda
         - /dev/nvme0n1
+
+    nodeSelector:
+      role: master
+
+    tolerations:
+      - key: role
+        operator: Equal
+        value: master
+        effect: NoSchedule
+
     serviceMonitor:
       enabled: true
     prometheusRules:
